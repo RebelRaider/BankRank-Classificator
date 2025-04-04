@@ -1,0 +1,111 @@
+#dan_contextmenu {
+	z-index				:1011;
+	position			:absolute;
+	margin-bottom		:100px;
+	min-width			:100px;
+	min-height			:25px;
+	line-height			:25px;
+	vertical-align		:middle;
+	cursor				:pointer;
+	-webkit-box-shadow	:2px 2px 5px #999;
+	-moz-box-shadow		:2px 2px 5px #999;
+	box-shadow			:2px 2px 5px #999;
+	border-color		:#999;
+	-webkit-border-radius:5px;
+	-moz-border-radius	:5px;
+	border-style		:solid;
+	border-width		:1px;
+	border-radius		:5px;
+	background-color	:#F4F4F4;
+}
+
+#dan_contextmenu a {
+	display				:block;
+	margin				:0px 10px 0px 10px;
+	padding				:0px 0px 0px 23px;
+    font-family			:Arial;
+    font-size			:13px;
+	color				:#000;	
+	text-decoration		:none;
+	border-bottom		:1px solid #e7e7e7;
+
+}
+
+.dan_contextmenu_add {
+	background			:url('/templates/contextmenu/images/add.png') no-repeat left center;
+}
+
+.dan_contextmenu_copy {
+	background			:url('/templates/contextmenu/images/copy.png') no-repeat left center;
+}
+
+.dan_contextmenu_edit {
+	background			:url('/templates/contextmenu/images/edit.png') no-repeat left center;
+}
+
+.dan_contextmenu_help {
+	background			:url('/templates/contextmenu/images/help.png') no-repeat left center;
+}
+
+.dan_contextmenu_up {
+	background			:url('/templates/contextmenu/images/up.png') no-repeat left center;
+}
+
+.dan_contextmenu_down {
+	background			:url('/templates/contextmenu/images/down.png') no-repeat left center;
+}
+
+.dan_contextmenu_pub {
+	background			:url('/templates/contextmenu/images/pub.png') no-repeat left center;
+}
+
+.dan_contextmenu_unpub {
+	background			:url('/templates/contextmenu/images/unpub.png') no-repeat left center;
+}
+
+.dan_contextmenu_block {
+	background			:url('/templates/contextmenu/images/block.png') no-repeat left center;
+}
+
+.dan_contextmenu_unblock {
+	background			:url('/templates/contextmenu/images/unblock.png') no-repeat left center;
+}
+
+.dan_contextmenu_tools {
+	background			:url('/templates/contextmenu/images/tools.png') no-repeat left center;
+}
+
+.dan_contextmenu_orders {
+	background			:url('/templates/contextmenu/images/orders.png') no-repeat left center;
+}
+
+.dan_contextmenu_import {
+	background			:url('/templates/contextmenu/images/import.png') no-repeat left center;
+}
+
+.dan_contextmenu_export {
+	background			:url('/templates/contextmenu/images/export.png') no-repeat left center;
+}
+
+.dan_contextmenu_delete {
+	background			:url('/templates/contextmenu/images/delete.png') no-repeat left center;
+}
+
+
+/* --- Левый клик -- */
+.dan_flex_row.dan_contextmenu_wrap {
+    overflow: visible;
+}
+
+.dan_contextmenu_ico {
+    width: 20px;
+    height: 20px;
+    fill: var(--color-active);
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dan_contextmenu_ico:hover {
+    transform: scale(1.1);
+}

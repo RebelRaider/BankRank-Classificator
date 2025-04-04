@@ -1,0 +1,83 @@
+/* DARK THEME */
+
+:root {
+	--dark_theme_1: rgb(34, 33, 40);
+	--dark_theme_2: rgb(50, 51, 57);
+	--dark_theme_3: rgb(69, 69, 69);
+	--dark_theme_4: hsl(0deg 0% 30%);
+	--dark_theme_5: hsl(0deg 0% 40%);
+	--dark_theme_6: hsl(0deg 0% 50%);
+	--dark_theme_7: hsl(0deg 0% 60%);
+}
+
+
+.theme_ico {
+    width: 30px;
+    height: 30px;
+    display: block;
+    padding: 7px;
+    box-sizing: border-box;
+	border-radius: 50%;
+	transition: background 0.3s;
+}
+
+.theme_ico_active {
+    border-radius: 50%;
+    background: var(--color-active);
+}
+
+
+.theme_ico_active use {
+	fill: #fff;
+}
+
+.theme_select {
+	width: 60px;
+    margin: 0 auto;
+	display: flex;
+	border: solid 1px #ccc;
+    border-radius: 30px;
+	margin: 5px;
+	cursor:pointer;
+}
+
+
+.theme_select svg {
+    width: 100%;
+    height: 100%;
+}
+
+.dark_theme {
+	color:#fff;
+}
+
+
+.dark_theme .theme_select svg {
+    fill: #fff;
+}
+
+.dark_theme .footer  {
+	background-color:var(--dark_theme_1);
+}
+
+.dark_theme .header {
+	background-color:var(--dark_theme_2);
+	border-color: var(--dark_theme_3)
+}
+
+
+.dark_theme .main  {
+	background-color:var(--dark_theme_2);
+}
+
+.dark_theme .mp_panel {
+	background-color:var(--dark_theme_1);
+	border-top: 4px solid;
+	border-color: var(--dark_theme_3)
+}
+
+.dark_theme input, .dark_theme .input, .dark_theme textarea {
+    border-color:var(--dark_theme_4);
+    background-color: var(--dark_theme_3);
+    color: #fff;
+}

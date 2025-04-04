@@ -1,0 +1,158 @@
+html, body {
+    height: 100vh;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    color: #222;
+    --color-active:#EE1133;
+    --color-inactive: #0088BB;
+    --color-inactive-hover: #00BBEE;
+    --color-bg-color: hsl(233deg 96% 10%);
+    --color-bg-gray: #74777B;
+    --border-color:#EE1133;
+}
+
+.text_align_center {
+    text-align: center;
+}
+
+td {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+
+h1, .title {
+    margin: 0px 0px 20px 0px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.m_40_0 {
+    margin: 40px 0;
+}
+
+.w_400 {
+    width: 100% !important;
+    max-width: 400px !important;
+}
+
+
+/* --- template --- */
+
+.main {
+	display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    display: flex;
+	align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    background-color: #fff;
+    z-index: 5;
+	padding: 0 25px;
+	border-bottom: 1px solid #e8e9eb;
+    border-top: 1px solid #e8e9eb;
+    margin: 20px 60px;
+}
+
+.header_title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #555555;
+}
+
+.footer {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #555555;
+    background-color: #f5f5f5;
+}
+
+.dan_button_red {
+    border: 1px solid var(--color-active) !important;
+    background: var(--color-active) !important;
+}
+
+/* --- Content --- */
+.content {
+	flex: 1;
+    padding: 20px 30px;
+}
+
+
+/* --- Admin table --- */
+.admin_table {
+    border: 1px solid #adbdca;
+    border-spacing: 0;
+    width: 100%
+}
+
+.admin_table td {
+    height: 40px;
+    padding: 0 0 0 10px;
+    vertical-align: middle;
+    border-bottom: solid 1px #e7e7e7;
+    box-sizing: border-box;
+}
+
+.admin_table th {
+    padding: 0;
+    height: 38px;
+    text-align: left;
+    padding-left: 10px;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid;
+    border-color: #e2e5e7 #8f989d #969b9d #eff0f0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.7);
+    background-color: #c2cbcf;
+    background-image: linear-gradient(to bottom, #c2cbcf, #b2babb)
+}
+
+.admin_table td .contextmenu_wrap {
+    margin-left: -10px;
+}
+
+.admin_table .unpub, .admin_table .unpub a {
+    color: #bbb;
+}
+
+.admin_table .unpub .dan_contextmenu_ico {
+    fill: #bbb;
+}
+
+.admin_table a {
+    color: var(--color-active);
+    text-decoration: none;
+}
+
+.admin_table a:hover {
+    text-decoration: underline;
+}
+
+.admin_table tr.unpub, .admin_table tr.unpub a {
+    color: #bbb;
+}
+
+.admin_table tr.unpub .contextmenu_ico {
+    fill: #bbb;
+}
+
+#dan_modal_progress {
+    width: 100%;
+    height: 30px;
+}

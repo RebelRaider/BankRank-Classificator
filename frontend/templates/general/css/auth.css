@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    justify-content: center;
+	align-items: center;
+	background-color:var(--color-bg-gray);
+}
+
+#content {
+    display: flex;
+	flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+	width: 300px;
+    height: 350px;
+	padding: 20px;
+    background-color: hsl(0deg 0% 100% / 10%);
+	box-sizing: border-box;
+}
+
+.login_form_submit {
+	color: #fff;
+	background-color: var(--color-active) !important;
+	width: 100%;
+	border-color: var(--color-active)  !important;
+	transition: .3s ease;
+}
+
+.login_form_submit:hover {
+	transform:scale(1.05);
+}
+
+.login_form_text {
+	color: #ffffff;
+	margin-bottom: -5px;
+}

@@ -1,0 +1,96 @@
+.mp_panel {
+    flex-basis: 300px;
+    flex-grow: 1;
+    margin: 0px 20px 20px 0px;
+    padding: 20px;
+    height: 300px;
+    width: 300px;
+    font-size: 14px;
+    box-sizing: border-box;
+    border-top: solid 4px var(--color-active);
+    background-color: #f5f5f5;
+    transition: 0.3s;
+}
+
+.mp_panel_title {
+    font-size: 24px;
+    font-weight: 400;
+    text-decoration: none;
+    margin-bottom: 10px;
+	text-align: center;
+}
+
+#a_presentation, #a_documentation {
+	display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+	justify-content: flex-start;
+	margin-top: 20px;
+	font-size: 20px;
+	color: var(--color-active);
+}
+
+.pdf_svg {
+	height: 50px;
+    width: 50px;
+	margin-right: 10px;
+	fill: var(--color-active);
+}
+
+/* --- Input --- */
+
+.input-file-container {
+  position: relative;
+  width: 225px;
+} 
+.input-file-trigger {
+  display: block;
+  padding: 14px 45px;
+  background: var(--color-inactive);
+  color: #fff;
+  font-size: 1em;
+  transition: all .4s;
+  cursor: pointer;
+}
+.input-file {
+  position: absolute;
+  top: 0; left: 0;
+  width: 225px;
+  opacity: 0;
+  padding: 14px 0;
+  cursor: pointer;
+}
+.input-file:hover + .input-file-trigger,
+.input-file:focus + .input-file-trigger,
+.input-file-trigger:hover,
+.input-file-trigger:focus {
+  background: var(--color-active)
+}
+
+.file-return {
+  margin: 0;
+}
+.file-return:not(:empty) {
+  margin: 1em 0;
+}
+.file-return {
+  font-style: italic;
+  font-size: .9em;
+  font-weight: bold;
+}
+.file-return:not(:empty):before {
+  content: "Выбранный файл: ";
+  font-style: normal;
+  font-weight: normal;
+}
+
+form {
+  text-align:center;
+}
+
+.rating {
+	font-size: 36px;
+	font-weight: 600;
+	color: #f44336;
+}

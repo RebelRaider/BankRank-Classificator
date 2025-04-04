@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+<link rel="icon" href="/templates/general/images/favicon.svg" type="image/svg+xml">
+<title>{{ title | safe }}</title>
+<link rel="stylesheet" href="/templates/general/css/main.css" />
+<link rel="stylesheet" href="/templates/general/css/theme.css" />
+<script src="/templates/general/js/theme.js"></script>
+{{ head | safe }}
+</head>
+<body>
+{% if not AUTH %}
+	<div id="content">{{ content | safe }}</div>
+{% else %}
+<div class="main">
+	<div class="header">
+		<div><p class="header_title">Команда Союз<p></div>
+		<div class="theme_select"><div id="white_theme" class="theme_ico theme_ico_active" title="Светлая тема"><svg><use xlink:href="/templates/general/images/sprite.svg#sun"></use></svg></div><div id="dark_theme" class="theme_ico" title="Темная тема"><svg><use  xlink:href="/templates/general/images/sprite.svg#moon"></use></svg></div></div>
+	</div>
+	<div id="content" class="content">{{ content | safe }}</div>
+	<div class="footer">Команда СОЮЗ</div>
+</div>
+{% endif %}
+</body>
+</html>
+
+
+
+
+
+
+
