@@ -65,6 +65,7 @@ docker-compose up -d
 
 2. Запустите обучение:
 ```
+cd backend
 python scripts/train_model.py --csv_path path/to/train.csv --epochs 5
 ```
 
