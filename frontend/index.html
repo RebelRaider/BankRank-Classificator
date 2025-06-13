@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Классификатор Банковских Текстов</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <span>TextClassifier</span>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#/" class="nav-link active" data-route="home">
+                        <div class="nav-icon home-icon"></div>
+                        <span>Главная</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#/classify" class="nav-link" data-route="classify">
+                        <div class="nav-icon classify-icon"></div>
+                        <span>Классификация</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#/dashboard" class="nav-link" data-route="dashboard">
+                        <div class="nav-icon dashboard-icon"></div>
+                        <span>Дашборд</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#/history" class="nav-link" data-route="history">
+                        <div class="nav-icon history-icon"></div>
+                        <span>История</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Page -->
+            <div id="home-page" class="page active">
+                <div class="container">
+                    <div class="hero-section">
+                        <h1 class="hero-title typing-text">Классификатор Банковских Текстов</h1>
+                        <p class="hero-subtitle">Продвинутый анализ токсичности и рейтинговая классификация текстовых обращений</p>
+                        <div class="hero-features">
+                            <div class="feature-card">
+                                <div class="feature-icon toxicity-icon"></div>
+                                <h3>Анализ Токсичности</h3>
+                                <p>Определение уровня токсичности текста с высокой точностью</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon rating-icon"></div>
+                                <h3>Рейтинговая Классификация</h3>
+                                <p>Автоматическое присвоение рейтинга от AAA до C</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon analytics-icon"></div>
+                                <h3>Детальная Аналитика</h3>
+                                <p>Глубокий анализ текста с статистикой и метриками</p>
+                            </div>
+                        </div>
+                        <button class="btn btn--primary btn--hero" onclick="navigateTo('classify')">
+                            Начать Анализ
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Classification Page -->
+            <div id="classify-page" class="page">
+                <div class="container">
+                    <div class="classify-header">
+                        <h1>Классификация Текста</h1>
+                        <p>Введите текст для анализа токсичности и рейтинговой классификации</p>
+                    </div>
+                    
+                    <div class="classify-form">
+                        <div class="form-group">
+                            <label for="text-input" class="form-label">Текст для анализа</label>
+                            <textarea 
+                                id="text-input" 
+                                class="form-control text-input" 
+                                placeholder="Введите текст для анализа... (минимум 10 символов)"
+                                rows="6"
+                            ></textarea>
+                            <div class="input-counter">
+                                <span id="char-counter">0</span> символов
+                            </div>
+                        </div>
+                        <button id="analyze-btn" class="btn btn--primary btn--analyze">
+                            <span class="btn-text">Анализировать текст</span>
+                            <div class="btn-loader hidden"></div>
+                        </button>
+                    </div>
+
+                    <div id="results-section" class="results-section hidden">
+                        <div class="results-grid">
+                            <!-- Text Statistics -->
+                            <div class="result-card stats-card">
+                                <h3>Статистика текста</h3>
+                                <div class="stats-grid">
+                                    <div class="stat-item">
+                                        <div class="stat-number" id="text-length">0</div>
+                                        <div class="stat-label">Символов</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-number" id="word-count">0</div>
+                                        <div class="stat-label">Слов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Toxicity Analysis -->
+                            <div class="result-card toxicity-card">
+                                <h3>Анализ токсичности</h3>
+                                <div class="toxicity-result">
+                                    <div class="toxicity-circle">
+                                        <canvas id="toxicity-chart" width="120" height="120"></canvas>
+                                        <div class="toxicity-score">
+                                            <span id="toxicity-percentage">0%</span>
+                                        </div>
+                                    </div>
+                                    <div class="toxicity-details">
+                                        <div class="toxicity-status" id="toxicity-status">Не токсичен</div>
+                                        <div class="confidence">Уверенность: <span id="toxicity-confidence">0%</span></div>
+                                        <div class="model-info">Модель: <span id="toxicity-model">-</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Rating Classification -->
+                            <div class="result-card rating-card">
+                                <h3>Рейтинговая классификация</h3>
+                                <div class="rating-result">
+                                    <div class="main-rating">
+                                        <div class="rating-badge" id="main-rating">-</div>
+                                        <div class="rating-confidence">Уверенность: <span id="rating-confidence">0%</span></div>
+                                    </div>
+                                    <div class="rating-chart">
+                                        <canvas id="rating-chart" width="300" height="200"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Performance -->
+                            <div class="result-card performance-card">
+                                <h3>Производительность</h3>
+                                <div class="performance-grid">
+                                    <div class="perf-item">
+                                        <div class="perf-label">Время обработки</div>
+                                        <div class="perf-value" id="processing-time">0 мс</div>
+                                    </div>
+                                    <div class="perf-item">
+                                        <div class="perf-label">Из кэша</div>
+                                        <div class="perf-value" id="cache-status">Нет</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="page">
+                <div class="container">
+                    <div class="dashboard-header">
+                        <h1>Аналитическая панель</h1>
+                        <p>Общая статистика и аналитика системы классификации</p>
+                    </div>
+                    
+                    <div class="dashboard-grid">
+                        <!-- Overview Stats -->
+                        <div class="dashboard-card overview-stats">
+                            <h3>Общая статистика</h3>
+                            <div class="overview-grid">
+                                <div class="overview-item">
+                                    <div class="overview-number">15,420</div>
+                                    <div class="overview-label">Всего запросов</div>
+                                </div>
+                                <div class="overview-item">
+                                    <div class="overview-number">23.4%</div>
+                                    <div class="overview-label">Средняя токсичность</div>
+                                </div>
+                                <div class="overview-item">
+                                    <div class="overview-number">BBB</div>
+                                    <div class="overview-label">Популярный рейтинг</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Daily Activity Chart -->
+                        <div class="dashboard-card activity-chart">
+                            <h3>Активность за 7 дней</h3>
+                            <canvas id="activity-chart" width="400" height="200"></canvas>
+                        </div>
+
+                        <!-- Rating Distribution -->
+                        <div class="dashboard-card rating-distribution">
+                            <h3>Распределение рейтингов</h3>
+                            <canvas id="distribution-chart" width="250" height="250"></canvas>
+                        </div>
+
+                        <!-- Top Toxic Phrases -->
+                        <div class="dashboard-card toxic-phrases">
+                            <h3>Самые токсичные фразы</h3>
+                            <div class="toxic-list">
+                                <div class="toxic-item">
+                                    <div class="toxic-text">Это полный провал вашей политики!</div>
+                                    <div class="toxic-score">89%</div>
+                                </div>
+                                <div class="toxic-item">
+                                    <div class="toxic-text">Абсолютно неприемлемое поведение</div>
+                                    <div class="toxic-score">76%</div>
+                                </div>
+                                <div class="toxic-item">
+                                    <div class="toxic-text">Требую немедленного решения</div>
+                                    <div class="toxic-score">63%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Page -->
+            <div id="history-page" class="page">
+                <div class="container">
+                    <div class="history-header">
+                        <h1>История запросов</h1>
+                        <p>История всех выполненных анализов текстов</p>
+                    </div>
+                    
+                    <div class="history-table-container">
+                        <table class="history-table">
+                            <thead>
+                                <tr>
+                                    <th>Дата и время</th>
+                                    <th>Текст</th>
+                                    <th>Токсичность</th>
+                                    <th>Рейтинг</th>
+                                    <th>Время обработки</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody id="history-tbody">
+                                <!-- History entries will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Анализируем текст...</div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
